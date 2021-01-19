@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery</title>
+		<style>
+		.vert{background: green; width: 100px; height: 100px;}
+		.rouge{background: red; width: 100px; height: 100px;}
+		.bleu{background: blue; width: 100px; height: 100px;}
+		</style>
+        
+        <!-- placement des scripts  -->
+        <script src="../jquery-3.5.1.js"></script>
+		<script> 
+		$(function(){
+		$('h6').click(function(){
+			alert('yo');
+		});
+		$('#moi').click(function(){
+			$('h3').eq(0).css('display',"none");
+			$('h3').eq(1).css('display',"none");
+			$('h3').eq(2).css('display',"none");
+		});
+		$('.photos').click(function(){
+			$('h3').eq(3).css('display',"none");
+		});
+		$('.photos').dblclick(function(){
+			$('h3').eq(3).css('display',"block");
+		});
+		$('#moi2').click(function(){
+			$(this).hide();
+		});
+		$('#zone-rouge').mouseenter(function (){
+			alert('tu m\'as survolé');
+		});
+		$('#texte').mouseleave(function (){
+			alert('j\'aimerai etre lu stp');
+			});
+		
+		$('#zone-verte').hover(function (){
+		$(this).removeClass('bleu').addClass('vert');},function (){
+		$(this).removeClass('vert').addClass('bleu')
+		});
+		
+		$('#zone-bleue')
+		.mousedown(function (){
+			$('#zone-rose').css("display","none");
+		}).mouseup(function (){
+			$('#zone-rose').slideDown(1000);
+		});
+		
+		$('input').focusin(function(){
+			$(this).css({'border': '4px solid black', 'background-color':'yellow'})
+		});
+		$('input').focusout(function(){
+			$(this).css({'border': '1px solid black', 'background-color':'white'})
+		});
+		
+		$('#interrupteur').click(function(){
+			$('#on-off').fadeToggle(500);
+		})
+		
+	});
+		</script>
+	</head>
+	<body>	
+		<h1 style="color: #1e90ff;">Entrainement JQuery</h1>
+		<h6>Cliquer ici pour un Hello (alert) !</h6>
+		<hr>
+		<div id="moi" style="border: 4px solid black; width: 100px; height: 100px;"></div>
+		<h3>Si tu cliques sur le carré je vais disparaitre !</h3>
+		<h3>Moi aussi je vais disparaitre !</h3>
+		<h3>Moi aussi ! Parce que nous sommes tous des H3 !</h3>
+		<hr>
+		<img class="photos" src="https://via.placeholder.com/150" />
+		<h3>Clique sur la photo pour nous faire disparaitre et DOUBLE CLIC sur la photo pour qu'on reapparaisse !</h3>
+		<hr>
+		<div id="moi2" style="border: 4px solid red; width: 100px; height: 100px; text-align:center;"></div>
+		<p>Le clic sur le carré a bord rouge le fait disparaitre</p>
+		<hr>
+		<div id="zone-rouge" style="background: red; width: 100px; height: 100px;"></div>
+		<p>Le survol du carré rouge engendre une alert('survol')</p>
+		<hr>
+		<p id="texte" style="width: 100px;">Voici un joli texte que j'aimerai que vous lisiez</p>
+		<p>Quitter la zone texte engendre une alert('Avez vous lu ?')</p>
+        <hr>
+        <!-- https://api.jquery.com/category/manipulation/class-attribute/ -->
+		<div id="zone-verte" class="vert"></div>
+		<p>Le survol du carré vert engendre un changement de classe vers la classe vert, sortir du carré lui donne la classe bleu</p>
+		<hr>
+		<div id="zone-bleue" style="background: blue; width: 100px; height: 100px;"></div>
+		<p>La pression du clic sur le carré bleu fait disparaitre le carré rose, le relachement du clic le fait reapparaitre en slide.</p>
+		<hr>
+		<div id="zone-rose" style="background: pink; width: 100px; height: 100px;"></div>
+		<hr>
+		<form>
+			<label for="nom" >Nom</label>
+				<input type="text" id="nom">
+			<br>
+			<label for="mdp"> Mot de passe</label>
+				<input type="password">
+		</form>
+		<p>La selection des inputs donne un contour plus gros et un fond jaune, les quitter donne un retour a la forme d'origine</p>
+		<hr>
+		<button id="interrupteur">ON / OFF</button>
+		<h1 id="on-off">J'apparais et Disparais si tu cliques sur l'intérrupteur en fondu </h1>
+		<hr>
+		
+        
+        
+		
+	</body>
+    </html>
